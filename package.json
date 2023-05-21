@@ -1,0 +1,21 @@
+{
+  "name": "mern-app-ecommerce",
+  "version": "1.0.0",
+  "description": "full stack eCommerce MERN app",
+  "main": "server.js",
+  "scripts": {
+    "start": "backend/server.js",
+    "dev": "export NODE_ENV= DEVELOPMENT& nodemon backend/server",
+    "pro": "export NODE_ENV= PRODUCTION& nodemon backend/server"
+  },
+  "author": "Kahsay G/kidan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
