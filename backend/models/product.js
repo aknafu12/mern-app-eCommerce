@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Define the schema for my product--> collection
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -35,7 +36,6 @@ const productSchema = new mongoose.Schema({
   descirption: {
     type: String,
     required: [true, "Please enter product name description"],
-    trim: true,
     maxLength: [100, "Product name must be at most 100 chracter"]
   },
   rating: {
@@ -47,7 +47,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please select category for this product "],
     enum: {
-        values: ["Electronics",  "Cameras", "Labtop", "Accessories", "Headphones", "Food","Fashion", "Sports", "Books", "Health"],
+        values: ["Electronics",  "Cameras", "Labtops", "Accessories", "Headphones", "Food","Fashion", "Sports", "Books", "Health"],
         message: 'Please select correct category for product'
     },
   },
@@ -59,7 +59,6 @@ const productSchema = new mongoose.Schema({
   stock: {
     type: String,
     required:[true, 'Please enter product stock'],
-    maxLength:[true, 'Product name can not exceed 5 character'],
     default:0
   },
   
@@ -81,11 +80,7 @@ const productSchema = new mongoose.Schema({
         comment:{
             type:String,
             required:true
-            }
-            
-        
-
-    
+            }                  
   }
 ],
 createdAt:{
@@ -96,4 +91,7 @@ createdAt:{
   
   
 });
-module.exports = mongoose.model('product', productSchema);
+// Create a Mongoose model for that schema
+
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;

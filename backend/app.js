@@ -1,12 +1,31 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-app.use(express.json());
-
-// import the routes
 const products = require('./routes/product');
 
-//to use the routes
-app.use('/api/v1', products)
 
-module.exports = app ;
+const cors = require('cors');
+
+app.use(express.json());
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+// Routes
+
+app.use('/api', products);
+// Error Handling
+app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') {
+        res.status(401).json({
+            error: 'Unauthorized Access'
+            });
+            } else {
+                next(err);
+                }
+                });
+                // Exporting the app
+                module.exports = app;
+                
+

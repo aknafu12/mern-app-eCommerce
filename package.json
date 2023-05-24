@@ -6,11 +6,13 @@
   "scripts": {
     "start": "backend/server.js",
     "dev": "export NODE_ENV= DEVELOPMENT& nodemon backend/server",
-    "pro": "export NODE_ENV= PRODUCTION& nodemon backend/server"
+    "pro": "export NODE_ENV= PRODUCTION& nodemon backend/server",
+    "seeder":"node backend/utils/dataSeeder.js"
   },
   "author": "Kahsay G/kidan",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.2.0"

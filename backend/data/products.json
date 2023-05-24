@@ -1,0 +1,95 @@
+[
+    {
+        "name": "shoes",        
+        "price": 200,   
+        "image":            
+        [
+            {
+                "public_id": "products/001",                   
+                "url": "https://res.cloudinary.com/dkxobqvqb/image/upload/v1684833152/cld-sample-5.jpg"
+           }
+            ],
+        "descirption": "shoes can serve a decorative purpose and have become an important part of fashion",
+        "ratings": 4.0,
+        "category": "Fashion",
+        "seller": "kahsay",
+        "stock": "f-5",       
+        "numOfReviews": "8",
+        "reviews": [{"name":"kahsay", "rating":4.0, "comment":"it is best site"}] 
+    
+    
+                    
+                
+        
+    },
+
+    {
+        "name": "flower",        
+        "price": 200,   
+        "image":            
+        [
+            {
+                "public_id": "products/004",                   
+                "url": "https://res.cloudinary.com/dkxobqvqb/image/upload/v1684833125/sample.jpg"
+           }
+            ],
+        "descirption": "flower can serve a decorative purpose and have become an important part of fashion",
+        "ratings": 4.0,
+        "category": "Accessories",
+        "seller": "flower",
+        "stock": "f-5",       
+        "numOfReviews": "8",
+        "reviews": [{"name":"flowe", "rating":4.0, "comment":"it is best site"}] 
+    
+    
+                    
+                
+        
+    },
+    {
+        "name": "beautifull",        
+        "price": 200,   
+        "image":            
+        [
+            {
+                "public_id": "products/002",                   
+                "url": "https://res.cloudinary.com/dkxobqvqb/image/upload/v1684833150/cld-sample.jpg"
+           }
+            ],
+        "descirption": "shoes can serve a decorative purpose and have become an important part of fashion",
+        "ratings": 4.0,
+        "category": "Sports",
+        "seller": "tigi",
+        "stock": "f-5",       
+        "numOfReviews": "8",
+        "reviews": [{"name":"tigi", "rating":4.0, "comment":"it is best site"}] 
+    
+    
+                    
+                
+        
+    },
+    {
+        "name": "cameras",        
+        "price": 200,   
+        "image":            
+        [
+            {
+                "public_id": "products/003",                   
+                "url": "https://res.cloudinary.com/dkxobqvqb/image/upload/v1684833151/cld-sample-3.jpg"
+           }
+            ],
+        "descirption": "shoes can serve a decorative purpose and have become an important part of fashion",
+        "ratings": 4.0,
+        "category": "Cameras",
+        "seller": "gere",
+        "stock": "f-2",       
+        "numOfReviews": "8",
+        "reviews": [{"name":"gere", "rating":4.0, "comment":"it is best site"}] 
+    
+    
+                    
+                
+        
+    }
+]
