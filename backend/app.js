@@ -6,6 +6,7 @@ const products = require('./routes/product');
 
 
 const cors = require('cors');
+const errorMiddleware = require('./middlewares/errors')
 
 app.use(express.json());
 // Middleware
@@ -15,16 +16,10 @@ app.use(cors());
 // Routes
 
 app.use('/api', products);
-// Error Handling
-app.use((err, req, res, next) => {
-    if (err.name === 'UnauthorizedError') {
-        res.status(401).json({
-            error: 'Unauthorized Access'
-            });
-            } else {
-                next(err);
-                }
-                });
+app.use('/api', products);
+
+// Middleware error handling 
+app.use(errorMiddleware);
                 // Exporting the app
                 module.exports = app;
                 

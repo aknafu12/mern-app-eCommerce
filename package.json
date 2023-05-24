@@ -6,7 +6,7 @@
   "scripts": {
     "start": "backend/server.js",
     "dev": "export NODE_ENV= DEVELOPMENT& nodemon backend/server",
-    "pro": "export NODE_ENV= PRODUCTION& nodemon backend/server",
+    "prod": "export NODE_ENV= PRODUCTION& nodemon backend/server",
     "seeder":"node backend/utils/dataSeeder.js"
   },
   "author": "Kahsay G/kidan",
