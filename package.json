@@ -7,15 +7,21 @@
     "start": "backend/server.js",
     "dev": "export NODE_ENV= DEVELOPMENT& nodemon backend/server",
     "prod": "export NODE_ENV= PRODUCTION& nodemon backend/server",
-    "seeder":"node backend/utils/dataSeeder.js"
+    "seeder": "node backend/utils/dataSeeder.js"
   },
   "author": "Kahsay G/kidan",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^7.2.0"
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.0",
+    "nodemailer": "^6.9.2",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
