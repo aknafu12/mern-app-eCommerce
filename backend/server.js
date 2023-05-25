@@ -28,7 +28,7 @@ process.on("unhandledRejection", (err, promise) => {
   process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`);
     //close server and exit process
-    serverHandler.close(() => process.exit(1));
+     serverHandle.close(() => process.exit(1));
     });
     //handle ctrl+c event
     process.on("SIGINT", () => {
