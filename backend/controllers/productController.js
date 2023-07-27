@@ -3,13 +3,12 @@ const Product = require("../models/product");
 const ErrorHandler = require("../utils/errorHandler");
 const errorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
-const ApiFeatures = require('../utils/apiFeatures')
+const APIFeatures = require('../utils/apiFeatures')
 
 
 //create new product accessed /api/admin/product/new
 exports.addNewProduct = catchAsyncErrors (async (req, res, next) => {
 
-  const apiFeatures = new APIFeatures(Product.find(), )
   const product = await Product.create(req.body);
 
   res.status(201).json({
@@ -32,7 +31,7 @@ exports.getAllProducts = catchAsyncErrors (async(req, res, next) => {
     success: true,
     count: allProduct.length,
     data: allProduct,
-  });
+  }); 
 })
 
 // query single product detail api => /api/product:id

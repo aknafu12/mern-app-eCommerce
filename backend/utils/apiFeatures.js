@@ -14,10 +14,10 @@ class APIFeatures {
 
         }:{}
 
-        console.log(keyword);s
+        // console.log(keyword);
         this.query = this.query.find({...keyword})
         return this;
 
     }
 }
-module.exports = APIFeatures;
+module.exports = APIFeatures
