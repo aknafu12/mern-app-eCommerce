@@ -19,5 +19,60 @@ class APIFeatures {
         return this;
 
     }
+    filter(){
+
+        const queryCopy=  {...this.queryStr};
+
+        // console.log(queryCopy)
+
+        // removing fields from query
+
+        const removeFields = ['keyword', 'limit', 'pages']
+        removeFields.forEach(el => delete queryCopy[el]);
+
+        this.query = this.query.find(queryCopy);
+        return this;
+
+        // advanced filter for price, rating
+        let queryStr = JSON.stringify(queryCopy);
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => '$${match}')
+
+        // console.log(queryStr);
+
+        this.query = this.query.find(JSON.parse(queryStr));
+        return this;
+    }
 }
 module.exports = APIFeatures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
