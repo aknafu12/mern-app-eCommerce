@@ -17,10 +17,16 @@ exports.registerUser = catchAsyncErrors(async (req, res, next)=> {
         }
 
     })
+
+    const token = user.getJwtToken();
+
+
+
     res.status(201).json({
         sucess: true,
-        message:"New account created",
-        user
+        message:"Successful new account created",        
+        token // user
+        
     })
 
 })
