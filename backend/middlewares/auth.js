@@ -1,6 +1,7 @@
 const catchAsyncErrors = require('./catchAsyncErrors');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const ErrorHandler = require('../utils/errorHandler');
 
 
 // check if user is authenticated or Notification
@@ -18,7 +19,7 @@ req.user = await User.findById(decoded.id);
 
 next()
 
-})
+}) 
 
 
 
