@@ -75,4 +75,20 @@ userSchema.methods.getJwtToken = function () {
     })
 }
 
-module.exports = mongoose.model('user', userSchema);
+// generate password reset token
+userSchema.methods.getresetPasswordToken = function () {
+    // generate token
+    const resetToken = crypto.randomBytes(20).toString('hex');
+
+    // hash and set to reset password token
+    this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+
+    // expire time for the link
+    this.resetPasswordExpire = new Date.now() + 30* 60* 1000
+    return resetToken
+
+
+
+}
+
+module.exports = mongoose.model('User', userSchema);
