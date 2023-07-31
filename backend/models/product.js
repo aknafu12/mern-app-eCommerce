@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+
+
 // Define the schema for my product--> collection
 const productSchema = new mongoose.Schema({
   name: {
@@ -35,7 +37,7 @@ const productSchema = new mongoose.Schema({
   
   descirption: {
     type: String,
-    required: [true, "Please enter product name description"],
+    required: [false, "Please enter product name description"],
     maxLength: [100, "Product name must be at most 100 chracter"]
   },
   rating: {
@@ -77,12 +79,20 @@ const productSchema = new mongoose.Schema({
             type:Number,
             required:true
         },
+        
         comment:{
             type:String,
             required:true
             }                  
   }
 ],
+
+user:{
+  type:mongoose.Schema.Types.ObjectId,
+  ref: "user",
+  required:true
+},
+
 createdAt:{
     type:Date,
     default:Date.now
