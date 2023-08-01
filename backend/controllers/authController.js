@@ -4,6 +4,9 @@ const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 
 const sendToken = require('../utils/jwtToken');
+const sendEmail = require('../utils/sendEmail');
+
+
 
 // register a user => /api/register
 exports.registerUser = catchAsyncErrors(async (req, res, next)=> {
@@ -67,6 +70,55 @@ exports.loginUser = catchAsyncErrors( async(req, res, next) => {
 
     sendToken(user, 200, res);
     
+
+})
+
+
+// forgot password  /api/password/forgot
+exports.forgotPassword = catchAsyncErrors( async(req, res, next) => {
+    const user = await User.findOne({email: req.body.email});
+
+    if(!user){
+        return next(new ErrorHandler("user not found with this email", 404))
+ 
+    }
+
+    // get reset token 
+    const resetToken = user.getResetPasswordToken();
+
+    await user.save({validateBeforeSave: false})
+
+    // create reset password url
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/password/reset/${resetToken}`;
+    
+    const message = ` Your passsword reset token is a follow:\n\n${resetUrl}\n\nIf you have not requested this email, then ignor it`
+
+    try{
+        await sendEmail({
+            email: user.email,
+            subject: 'Ecommorce password recovery',
+            message
+        })
+
+        res.status(200).json({
+            success: true,
+            message: `Email sent to ${user.email}`
+        })
+
+    }catch (error){
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+
+        await user.save({validateBeforeSave: false})
+        return next(new ErrorHandler(error.message, 500))
+
+
+    }
+
+
+    // const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
+
+
 
 })
 
